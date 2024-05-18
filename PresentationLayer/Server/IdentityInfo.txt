@@ -1,0 +1,2 @@
+Add-Migration InitialIdentity -OutputDir Identity/Migrations
+Update-Database

@@ -20,8 +20,8 @@ namespace Server.Controllers
             _logger = logger;
         }
 
-        [Authorize(Roles = "User")]
-        [HttpGet(Name = "GetWeatherForecast")]
+        //[Authorize(Roles = "User")]
+        [HttpGet(Name = "GetWeatherForecastUpt")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

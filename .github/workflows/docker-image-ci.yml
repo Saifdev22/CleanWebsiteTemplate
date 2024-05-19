@@ -35,3 +35,20 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/my-web-api:latest, ${{ secrets.DOCKERHUB_USERNAME }}/my-web-api:${{ github.run_number }} 
+  update_server:
+      name: Updating prod environment
+      runs-on: ubuntu-latest
+      needs: docker
+      steps:
+        - name: Replacing container
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SERVER_HOSTNAME }}
+            username: ${{ secrets.SERVER_USERNAME }}
+            password: ${{ secrets.SERVER_PASSWORD }}
+            script: |
+              docker image pull saifdev22/mywebapp:latest
+              docker container stop test-web
+              docker container prune -f
+              docker run -d --name test-web --restart unless-stopped -p 32770:8080 saifdev22/my-web-api:latest
+              docker image prune -f

@@ -1,4 +1,7 @@
-﻿using InfrastructureLayer.Identity;
+﻿global using Shared.DTOs;
+global using Shared.Responses;
+using InfrastructureLayer.Identity;
+
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +18,7 @@ namespace InfrastructureLayer
 
             services.AddDbContext<IdentityContext>(options =>
             {
-                options.UseSqlServer(identityConnection ?? throw new InvalidOperationException("Connection is not found!"));
+                options.UseSqlServer(identityConnection ?? throw new InvalidOperationException("Database connection not found!"));
             });
 
             //Identity Connection

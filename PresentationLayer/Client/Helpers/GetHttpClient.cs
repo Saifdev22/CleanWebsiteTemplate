@@ -1,5 +1,6 @@
-﻿using System.Net.Http.Headers;
-using Client.Models;
+﻿using Shared.DTOs;
+
+using System.Net.Http.Headers;
 
 namespace Client.Helpers
 {
@@ -22,7 +23,7 @@ namespace Client.Helpers
             if (string.IsNullOrEmpty(stringToken)) return client;
 
             //If token is not null or not empty we deserialize the token.
-            var deserializeToken = Serialization.DeserializeJsonString<UserSession>(stringToken);
+            var deserializeToken = Serialization.DeserializeJsonString<GetTokenDTO>(stringToken);
 
             //Validates the deserialized token.
             if (deserializeToken == null) return client;

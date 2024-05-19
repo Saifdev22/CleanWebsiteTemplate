@@ -1,5 +1,7 @@
-﻿using System.Net;
-using Client.Models;
+﻿using Shared.DTOs;
+
+using System.Net;
+
 
 namespace Client.Helpers
 {
@@ -27,7 +29,7 @@ namespace Client.Helpers
                 try { token = request.Headers.Authorization!.Parameter!; }
                 catch { }
 
-                var deserializedToken = Serialization.DeserializeJsonString<UserSession>(stringToken);
+                var deserializedToken = Serialization.DeserializeJsonString<GetTokenDTO>(stringToken);
                 if (deserializedToken is null) return result;
 
                 if (string.IsNullOrEmpty(token))

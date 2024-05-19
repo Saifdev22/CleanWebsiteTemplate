@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Identity\Migrations\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DomainLayer\DomainLayer.csproj" />
+    <ProjectReference Include="..\PresentationLayer\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>

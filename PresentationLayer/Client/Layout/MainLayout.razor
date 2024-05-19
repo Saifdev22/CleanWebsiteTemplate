@@ -1,7 +1,5 @@
-﻿@using ClientLibrary.Helpers
-@using Client.Models
+﻿@inherits LayoutComponentBase
 
-@inherits LayoutComponentBase
 <div class="page">
     <div class="sidebar">
         <NavMenu />
@@ -32,7 +30,7 @@
 
     async Task LogoutClicked()
     {
-        var logoutModel = new UserSession();
+        var logoutModel = new GetTokenDTO();
         var customAuthStateProvider = (CustomAuthenticationStateProvider)authenticationStateProvider;
         await customAuthStateProvider.UpdateAuthenticationState(logoutModel);
         navigationManager.NavigateTo("/identity/account/login", replace: true, forceLoad: true);

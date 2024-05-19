@@ -1,7 +1,8 @@
-﻿using DomainLayer.DTOs;
-using DomainLayer.Responses;
+﻿using Client.Helpers;
+using Shared.DTOs;
+using Shared.Responses;
 using System.Net.Http.Json;
-using Client.Helpers;
+
 
 namespace Client.Services
 {
@@ -15,7 +16,7 @@ namespace Client.Services
             var result = await httpClient.PostAsJsonAsync($"{AuthUrl}/register", user);
             if (!result.IsSuccessStatusCode) return new GeneralResponse(false, " Error occured");
 
-            return await result.Content.ReadFromJsonAsync<GeneralResponse>();        
+            return await result.Content.ReadFromJsonAsync<GeneralResponse>();
         }
 
         public async Task<LoginResponse> SignInAsync(LoginDTO user)

@@ -1,3 +1,4 @@
+global using Shared.DTOs;
 using ApplicationLayer;
 using InfrastructureLayer;
 using InfrastructureLayer.Services;

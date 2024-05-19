@@ -1,7 +1,8 @@
-﻿namespace Client.Models
+﻿namespace Shared.DTOs
 {
-    public class UserSession
+    public class GetTokenDTO
     {
         public string? Token { get; set; }
+
     }
 }

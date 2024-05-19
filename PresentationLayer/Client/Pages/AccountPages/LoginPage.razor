@@ -1,7 +1,4 @@
 ﻿@page "/identity/account/login"
-@using ClientLibrary.Helpers
-@using DomainLayer.DTOs
-@using Client.Models
 @using Client.Pages.Components
 //inject SfDialogService DialogService
 
@@ -78,7 +75,7 @@
         {
             //DisplayDialog(result.Message, "Login Success");
             var customAuthStateProvider = (CustomAuthenticationStateProvider)authenticationStateProvider;
-            await customAuthStateProvider.UpdateAuthenticationState(new UserSession() {Token = result.Token});
+            await customAuthStateProvider.UpdateAuthenticationState(new GetTokenDTO() {Token = result.Token});
             navigationManager.NavigateTo("/", forceLoad: true);
         }
         else

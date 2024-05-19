@@ -1,10 +1,11 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
+using Shared.DTOs;
+using Shared.Responses;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using Client.Helpers;
-using Client.Models;
 
-namespace ClientLibrary.Helpers
+
+namespace Client.Helpers
 {
     //This class is called everytime you switch pages to check if user is authenticated and authorized on the client side.
     public class CustomAuthenticationStateProvider(LocalStorageService localStorageService) : AuthenticationStateProvider
@@ -23,7 +24,7 @@ namespace ClientLibrary.Helpers
             if (string.IsNullOrEmpty(stringToken)) return await Task.FromResult(new AuthenticationState(anonymous));
 
             //If token is not null or not empty we deserialize the token.
-            var deserializeToken = Serialization.DeserializeJsonString<UserSession>(stringToken);
+            var deserializeToken = Serialization.DeserializeJsonString<GetTokenDTO>(stringToken);
 
             //Validates the deserialized token.
             if (deserializeToken == null) return await Task.FromResult(new AuthenticationState(anonymous));
@@ -33,7 +34,7 @@ namespace ClientLibrary.Helpers
 
             //Validates decrypted token.
             if (getUserClaims == null) return await Task.FromResult(new AuthenticationState(anonymous));
-            
+
             //Set claims from decrypted token.
             var claimsPrincipal = SetClaimPrincipal(getUserClaims);
 
@@ -43,15 +44,15 @@ namespace ClientLibrary.Helpers
 
 
 
-        public async Task UpdateAuthenticationState(UserSession userSession)
+        public async Task UpdateAuthenticationState(GetTokenDTO getToken)
         {
             var claimsPrincipal = new ClaimsPrincipal();
-            if (userSession.Token != null)
+            if (getToken.Token != null)
             {
-                var serializeSession = Serialization.SerializeObj(userSession);
+                var serializeSession = Serialization.SerializeObj(getToken);
                 await localStorageService.SetToken(serializeSession);
 
-                var getUserClaims = DecryptToken(userSession.Token!);
+                var getUserClaims = DecryptToken(getToken.Token!);
                 claimsPrincipal = SetClaimPrincipal(getUserClaims);
             }
             else

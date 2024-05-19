@@ -1,5 +1,5 @@
-﻿using DomainLayer.DTOs;
-using DomainLayer.Responses;
+﻿using Shared.DTOs;
+using Shared.Responses;
 
 namespace Client.Services
 {
@@ -7,8 +7,6 @@ namespace Client.Services
     {
         Task<GeneralResponse> CreateAsync(RegisterDTO user);
         Task<LoginResponse> SignInAsync(LoginDTO user);
-        //Task<LoginResponse> RefreshTokenAsync(RefreshToken token);
-        //Task<WeatherForecast[]> GetWeatherForecasts();
 
     }
 }

@@ -1,13 +1,11 @@
-﻿using DomainLayer.DTOs;
-using DomainLayer.Responses;
-using InfrastructureLayer.Identity;
+﻿using InfrastructureLayer.Identity;
 using Microsoft.AspNetCore.Identity;
 
 namespace InfrastructureLayer.Services
 {
     public class AccountService(
         UserManager<ApplicationUser> userManager,
-        RoleManager<IdentityRole> roleManager, 
+        RoleManager<IdentityRole> roleManager,
         ITokenService tokenService) : IAccountService
     {
         public async Task<LoginResponse> LoginUser(LoginDTO loginDTO)
@@ -27,7 +25,7 @@ namespace InfrastructureLayer.Services
             var getUserRole = await userManager.GetRolesAsync(getUser);
 
             // Pass model to token service.
-            var userSession = new UserSession(getUser.Id, getUser.Name, getUser.Email, getUserRole.First());
+            var userSession = new CustomUserClaims(getUser.Id, getUser.Name!, getUser.Email!, getUserRole.First());
             string token = tokenService.CreateToken(userSession);
 
             return new LoginResponse(true, "Login Successful", token);

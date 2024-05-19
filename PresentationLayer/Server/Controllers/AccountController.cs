@@ -1,5 +1,4 @@
-﻿using DomainLayer.DTOs;
-using InfrastructureLayer.Services;
+﻿using InfrastructureLayer.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers

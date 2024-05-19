@@ -1,5 +1,4 @@
-﻿using DomainLayer.Responses;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -9,7 +8,7 @@ namespace InfrastructureLayer.Services
 {
     public class TokenService(IConfiguration _config) : ITokenService
     {
-        public string CreateToken(UserSession user)
+        public string CreateToken(CustomUserClaims user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:Key"]!));
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);

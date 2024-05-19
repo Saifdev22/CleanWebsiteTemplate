@@ -47,7 +47,7 @@ jobs:
             username: ${{ secrets.SERVER_USERNAME }}
             password: ${{ secrets.SERVER_PASSWORD }}
             script: |
-              docker image pull saifdev22/mywebapp:latest
+              docker image pull saifdev22/my-web-api:latest
               docker container stop test-web
               docker container prune -f
               docker run -d --name test-web --restart unless-stopped -p 32770:8080 saifdev22/my-web-api:latest

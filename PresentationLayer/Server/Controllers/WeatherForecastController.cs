@@ -21,7 +21,7 @@ namespace Server.Controllers
         }
 
         [Authorize(Roles = "Admin")]
-        [HttpGet(Name = "GetWeatherForecastUpt")]
+        [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> WeatherForecasts()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

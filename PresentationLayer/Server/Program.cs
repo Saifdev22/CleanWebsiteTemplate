@@ -49,7 +49,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy",
         builder => builder
-        .WithOrigins("http://client.saifkhan.co.za", "https:// client.saifkhan.co.za")
+        .WithOrigins("http://client.saifkhan.co.za", "https://client.saifkhan.co.za")
         .AllowAnyMethod()
         .AllowAnyHeader()
         .AllowCredentials());

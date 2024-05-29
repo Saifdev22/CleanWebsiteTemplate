@@ -1,4 +1,4 @@
-﻿namespace DomainLayer
+﻿namespace DomainLayer.Entities
 {
     public class SuperHero
     {

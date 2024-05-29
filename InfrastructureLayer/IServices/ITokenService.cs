@@ -1,4 +1,4 @@
-﻿namespace InfrastructureLayer.Services
+﻿namespace InfrastructureLayer.IServices
 {
     public interface ITokenService
     {

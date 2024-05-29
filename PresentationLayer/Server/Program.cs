@@ -1,7 +1,10 @@
 global using Shared.DTOs;
+global using InfrastructureLayer.IServices;
+global using DomainLayer.Entities;
+global using Server.Models;
 using ApplicationLayer;
 using InfrastructureLayer;
-using InfrastructureLayer.Data;
+
 using InfrastructureLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;

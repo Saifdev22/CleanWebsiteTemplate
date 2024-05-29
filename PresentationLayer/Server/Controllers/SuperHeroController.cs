@@ -1,6 +1,4 @@
-﻿using DomainLayer;
-using InfrastructureLayer;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Server.Controllers
 {
@@ -19,8 +17,7 @@ namespace Server.Controllers
         public async Task<ActionResult<SuperHero>> GetSingleHero(int id)
         {
             var result = await _superHeroService.GetSingleHero(id);
-            if (result is null)
-                return NotFound("Hero not found.");
+            if (result is null) return NotFound("Hero not found.");
 
             return Ok(result);
         }
@@ -36,8 +33,7 @@ namespace Server.Controllers
         public async Task<ActionResult<List<SuperHero>>> UpdateHero(int id, SuperHero request)
         {
             var result = await _superHeroService.UpdateHero(id, request);
-            if (result is null)
-                return NotFound("Hero not found.");
+            if (result is null) return NotFound("Hero not found.");
 
             return Ok(result);
         }
@@ -46,8 +42,7 @@ namespace Server.Controllers
         public async Task<ActionResult<List<SuperHero>>> DeleteHero(int id)
         {
             var result = await _superHeroService.DeleteHero(id);
-            if (result is null)
-                return NotFound("Hero not found.");
+            if (result is null) return NotFound("Hero not found.");
 
             return Ok(result);
         }

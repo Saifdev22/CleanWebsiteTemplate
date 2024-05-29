@@ -1,5 +1,4 @@
-﻿using InfrastructureLayer.Identity;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace InfrastructureLayer.Services
 {

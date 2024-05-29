@@ -8,6 +8,11 @@ namespace InfrastructureLayer.Data
         {
         }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
         public DbSet<SuperHero> SuperHeroes { get; set; }
     }
 }

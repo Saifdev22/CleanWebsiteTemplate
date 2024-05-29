@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Diagnostics;
-using Server.Models;
 
 namespace Server.Extensions
 {

@@ -1,6 +1,4 @@
-﻿using DomainLayer;
-
-namespace InfrastructureLayer
+﻿namespace InfrastructureLayer.IServices
 {
     public interface ISuperHeroService
     {

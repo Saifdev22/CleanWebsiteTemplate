@@ -1,5 +1,4 @@
-﻿using InfrastructureLayer.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace InfrastructureLayer
 {
@@ -15,8 +14,7 @@ namespace InfrastructureLayer
         public async Task<List<SuperHero>?> DeleteHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
-            if (hero is null)
-                return null;
+            if (hero is null) return null;
 
             _context.SuperHeroes.Remove(hero);
             await _context.SaveChangesAsync();
@@ -33,8 +31,7 @@ namespace InfrastructureLayer
         public async Task<SuperHero?> GetSingleHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
-            if (hero is null)
-                return null;
+            if (hero is null) return null;
 
             return hero!;
         }
@@ -42,8 +39,7 @@ namespace InfrastructureLayer
         public async Task<List<SuperHero>?> UpdateHero(int id, SuperHero request)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
-            if (hero is null)
-                return null;
+            if (hero is null) return null;
 
             hero.FirstName = request.FirstName;
             hero.LastName = request.LastName;

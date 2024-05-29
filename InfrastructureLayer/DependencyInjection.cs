@@ -1,13 +1,13 @@
-﻿global using Shared.DTOs;
+﻿global using DomainLayer.Entities;
+global using InfrastructureLayer.Data;
+global using InfrastructureLayer.Identity;
+global using InfrastructureLayer.IServices;
+global using Shared.DTOs;
 global using Shared.Responses;
-global using DomainLayer;
-using InfrastructureLayer.Identity;
-
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using InfrastructureLayer.Data;
 
 namespace InfrastructureLayer
 {

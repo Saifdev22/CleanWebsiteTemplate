@@ -1,2 +1,6 @@
 Add-Migration InitialIdentity -OutputDir Identity/Migrations
 Update-Database
+
+
+Add-Migration InitialData -Context DataContext -OutputDir Data/Migrations
+Update-Database -Context DataContext

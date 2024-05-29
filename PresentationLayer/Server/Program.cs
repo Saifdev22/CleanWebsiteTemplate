@@ -1,6 +1,7 @@
 global using Shared.DTOs;
 using ApplicationLayer;
 using InfrastructureLayer;
+using InfrastructureLayer.Data;
 using InfrastructureLayer.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -72,6 +73,8 @@ builder.Services.AddSwaggerGen(options =>
 // Repositories & Services
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ISuperHeroService, SuperHeroService>();
+
 
 var app = builder.Build();
 
